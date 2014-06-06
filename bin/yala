@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+var program = require('commander');
+var spawn = require('child_process').spawn;
+
+program
+  .version('0.0.1')
+
+program
+  .command('create [name]')
+  .description('create a new project repository')
+  .action(function(name){
+    spawn('mkdir', [name]);
+});
+
+program
+  .command('*')
+  .action(function(env){
+    console.log('Enter a Valid command');
+    terminate(true);
+});
+
+program.parse(process.argv);

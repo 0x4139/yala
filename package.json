@@ -1,0 +1,29 @@
+{
+  "name": "yala",
+  "version": "0.0.1",
+  "description": "yala is a deployment solution for nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/0x4139/yala.git"
+  },
+  "keywords": [
+    "nodejs",
+    "deployment",
+    "git",
+    "deployment"
+  ],
+  "author": "0x4139@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/0x4139/yala/issues"
+  },
+  "homepage": "https://github.com/0x4139/yala",
+  "dependencies": {
+    "express": "^4.4.1",
+    "commander": "^2.2.0"
+  }
+}
