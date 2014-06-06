@@ -1,15 +1,24 @@
 #!/usr/bin/env node
 var program = require('commander');
 var spawn = require('child_process').spawn;
+var sh = require("shelljs");
+
 
 program
-  .version('0.0.1')
+  .version('0.0.4')
 
 program
   .command('create [name]')
   .description('create a new project repository')
   .action(function(name){
+    console.log('Creating folder ...');
     spawn('mkdir', [name]);
+    var deployDir=sh.pwd()+'/'+name+'/deploy';
+    console.log('Creating git repository ...');
+    spawn('git',['init', '--bare',name]);
+    console.log('Creating deploy folder: '+deployDir);
+    spawn('mkdir',name+'/'+deployDir);
+
 });
 
 program

@@ -1,8 +1,15 @@
 {
   "name": "yala",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "yala is a deployment solution for nodejs",
   "main": "./bin",
+  "bin": {
+    "yala": "./bin/yala"
+  },
+  "directories": {
+    "test": "./test",
+    "bin": "./bin"
+  },
   "scripts": {
     "test": "./bin/yala --help"
   },
@@ -23,6 +30,7 @@
   },
   "homepage": "https://github.com/0x4139/yala",
   "dependencies": {
-    "commander": "^2.2.0"
+    "commander": "^2.2.0",
+    "shelljs": "^0.3.0"
   }
 }
