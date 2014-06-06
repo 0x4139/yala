@@ -2,7 +2,16 @@
 var program = require('commander');
 var spawn = require('child_process').spawn;
 var sh = require("shelljs");
+var fs = require('fs');
 
+
+var script=
+"#!/bin/sh \n"+
+"GIT_WORK_TREE=#{directory} git checkout -f \n"+
+"cd #{directory} \n"+
+"forever stop index.js \n"+
+"npm install \n"+
+"forever start index.js \n";
 
 program
   .version('0.0.4')
@@ -17,7 +26,16 @@ program
     console.log('Creating git repository ...');
     spawn('git',['init', '--bare',name]);
     console.log('Creating deploy folder: '+deployDir);
-    spawn('mkdir',name+'/'+deployDir);
+    spawn('mkdir',[name+'/deploy']);
+    spawn('touch',[name+"/hooks/post-receive"]);
+    fs.writeFile(name+"/hooks/post-receive", script.replace(/#{directory}/g, deployDir), function(err) {
+    if(err) {
+        console.log(err);
+    } else {
+        spawn('chmod',['+x',name+'/hooks/post-receive']);
+        console.log("Repository: ssh://root@public-ip"+sh.pwd()+'/'+name);
+    }
+});
 
 });
 
@@ -25,7 +43,6 @@ program
   .command('*')
   .action(function(env){
     console.log('Enter a Valid command');
-    terminate(true);
 });
 
 program.parse(process.argv);

@@ -1,6 +1,6 @@
 {
   "name": "yala",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "yala is a deployment solution for nodejs",
   "main": "./bin",
   "bin": {
