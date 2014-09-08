@@ -3,8 +3,7 @@ yala is a deployment system based on git-hooks that enables you to deploy your n
 
 ## Installation
 
-The fastest way to get started is to clone this repository to your target directory and run gulp
-
+On the server
 ```
 sudo npm install -g yala
 yala create [app-name]
