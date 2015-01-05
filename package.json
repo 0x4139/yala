@@ -1,6 +1,6 @@
 {
   "name": "yala",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "yala is a deployment solution for nodejs",
   "main": "./bin",
   "bin": {
@@ -31,6 +31,7 @@
   "homepage": "https://github.com/0x4139/yala",
   "dependencies": {
     "commander": "^2.2.0",
+    "external-ip": "^0.2.3",
     "shelljs": "^0.3.0"
   }
 }

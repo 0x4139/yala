@@ -3,7 +3,7 @@ var program = require('commander');
 var spawn = require('child_process').spawn;
 var sh = require("shelljs");
 var fs = require('fs');
-
+var getIP = require('external-ip')();
 
 var script=
 "#!/bin/sh \n"+
@@ -14,7 +14,7 @@ var script=
 "forever start index.js \n";
 
 program
-  .version('0.0.4')
+  .version('0.0.7')
 
 program
   .command('create [name]')
@@ -33,7 +33,12 @@ program
         console.log(err);
     } else {
         spawn('chmod',['+x',name+'/hooks/post-receive']);
-        console.log("Repository: ssh://root@public-ip"+sh.pwd()+'/'+name);
+        getIP(function (err, ip) {
+            if (err) {
+                console.log("Repository: ssh://root@public-ip"+sh.pwd()+'/'+name);
+            }
+            console.log("Repository: ssh://root@"+ip+sh.pwd()+'/'+name);
+        });
     }
 });
 
