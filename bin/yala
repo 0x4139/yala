@@ -11,10 +11,10 @@ var script=
 "cd #{directory} \n"+
 "forever stop index.js \n"+
 "npm install \n"+
-"forever start index.js \n";
+"NODE_ENV=production forever start index.js \n";
 
 program
-  .version('0.0.7')
+  .version('0.0.8');
 
 program
   .command('create [name]')
