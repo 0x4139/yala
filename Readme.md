@@ -1,9 +1,5 @@
 #[yala](https://github.com/0x4139/yala)
-[![NPM Version][npm-image]][npm-url]
-[![NPM Downloads][downloads-image]][downloads-url]
-[![Build Status][travis-image]][travis-url]
-[![Donations][gratipay-image]][gratipay-url]
-[![Gitter][gitter-image]][gitter-url]
+
 
 yala is a deployment system based on git-hooks that enables you to deploy your node apps using git
 
